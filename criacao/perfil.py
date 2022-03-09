@@ -1,4 +1,4 @@
-# Factory Method
+# Design Pattern: Factory Method
 
 from abc import ABCMeta, abstractmethod
 

@@ -1,3 +1,5 @@
+# Design Pattern: Abstract Factory
+
 # Importação de metaclasse para criação de classe abstrata
 from abc import ABCMeta, abstractmethod
 
