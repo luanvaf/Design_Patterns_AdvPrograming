@@ -7,57 +7,57 @@ from abc import ABCMeta, abstractmethod
 class MarcaConsulta(metaclass=ABCMeta):
 
     @abstractmethod
-    def marcarConsultaNormal(self):
+    def marcarConsultaAdulto(self):
         pass
 
     @abstractmethod
-    def marcarConsultaPediatria(self):
+    def marcarConsultaCrianca(self):
         pass
 
 
 class ConsultaCardiologia(MarcaConsulta):
-    def marcarConsultaNormal(self):
-        return ConsultaCardiologiaNormal()
+    def marcarConsultaAdulto(self):
+        return ConsultaCardiologiaAdulto()
 
-    def marcarConsultaPediatria(self):
-        return ConsultaCardiologiaPediatria()
+    def marcarConsultaCrianca(self):
+        return ConsultaCardiologiaCrianca()
 
 
 class ConsultaOrtopedia(MarcaConsulta):
-    def marcarConsultaNormal(self):
-        return ConsultaOrtopediaNormal()
+    def marcarConsultaAdulto(self):
+        return ConsultaOrtopediaAdulto()
 
-    def marcarConsultaPediatria(self):
-        return ConsultaOrtopediaPediatra()
+    def marcarConsultaCrianca(self):
+        return ConsultaOrtopediaCrianca()
 
 
-class ConsNormal(metaclass=ABCMeta):
+class ConsAdulto(metaclass=ABCMeta):
     @abstractmethod
-    def prepare(self, ConsNormal):
+    def prepare(self, ConsAdulto):
         pass
 
 
-class ConsPediatria(metaclass=ABCMeta):
+class ConsCrianca(metaclass=ABCMeta):
     @abstractmethod
-    def serve(self, ConsPediatria):
+    def serve(self, ConsCrianca):
         pass
 
 
-class ConsultaOrtopediaNormal(ConsNormal):
+class ConsultaOrtopediaAdulto(ConsAdulto):
     def prepare(self):
         print("Marcando", type(self).__name__)
 
 
-class ConsultaOrtopediaPediatra(ConsPediatria):
-    def serve(self, ConsNormal):
-        print("Marcando", type(self).__name__, "Foi Marcacado", type(ConsNormal).__name__)
+class ConsultaOrtopediaCrianca(ConsCrianca):
+    def serve(self, ConsAdulto):
+        print("Marcando", type(self).__name__, "Foi Marcacado", type(ConsAdulto).__name__)
 
 
-class ConsultaCardiologiaNormal(ConsNormal):
+class ConsultaCardiologiaAdulto(ConsAdulto):
     def prepare(self):
         print("Marcando", type(self).__name__)
 
 
-class ConsultaCardiologiaPediatria(ConsPediatria):
-    def serve(self, ConsNormal):
-        print("Marcando", type(self).__name__, "Foi Marcacado", type(ConsNormal).__name__)
+class ConsultaCardiologiaCrianca(ConsCrianca):
+    def serve(self, ConsAdulto):
+        print("Marcando", type(self).__name__, "Foi Marcacado", type(ConsAdulto).__name__)
