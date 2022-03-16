@@ -1,5 +1,5 @@
 # Importação de metaclasse para criação de classe abstrata
-from criacao.consulta import ConsultaCardiologia, ConsultaOrtopedia
+from Design_Pattern.criacao.consulta import ConsultaCardiologia, ConsultaOrtopedia
 
 class Consultorio:
 

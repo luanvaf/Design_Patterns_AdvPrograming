@@ -36,10 +36,10 @@ class Laboratorio:
 
 if __name__ == '__main__':
     executor_exame = ExecutorExames()
-    shop = Laboratorio(executor_exame)
+    lab = Laboratorio(executor_exame)
 
-    shop.solicitar('Exame de Sangue', 1)
-    shop.solicitar('Exame de Vista', 2)
-    shop.solicitar('Exame Cardíaco', 3)
+    lab.solicitar('Exame de Sangue', 1)
+    lab.solicitar('Exame de Vista', 2)
+    lab.solicitar('Exame Cardíaco', 3)
 
-    shop.realizar()
+    lab.realizar()
