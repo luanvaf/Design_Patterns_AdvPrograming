@@ -11,9 +11,9 @@ class Colaborador:
         return self.__nome
 
 
-class Desenvolvedor(Colaborador):
+class Recepcionista(Colaborador):
     def __init__(self, nome, salario, outro_parametro=None):
-        super(Desenvolvedor, self).__init__(nome, salario)
+        super(Recepcionista, self).__init__(nome, salario)
         self.__outro_parametro = outro_parametro
 
     @property
@@ -46,7 +46,7 @@ class Organizacao:
 
 
 if __name__ == '__main__':
-    joao = Desenvolvedor('Joao da Silva', 1800)
+    joao = Recepcionista('Joao da Silva', 1800)
     carla = Medico('Carla Camila', 1900)
 
     organizacao = Organizacao()
