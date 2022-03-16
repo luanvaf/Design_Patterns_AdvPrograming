@@ -3,62 +3,62 @@
 from abc import ABCMeta, abstractmethod
 
 
-class Secao(metaclass=ABCMeta):
+class Perfil(metaclass=ABCMeta):
 
     @abstractmethod
     def descricao(self):
         pass
 
 
-class SecaoPaciente(Secao):
+class PerfilPaciente(Perfil):
     def descricao(self):
-        print("Seção Paciente")
+        print("Perfil Paciente")
 
 
-class SecaoMedico(Secao):
+class PerfilMedico(Perfil):
     def descricao(self):
-        print("Seção Médico")
+        print("Perfil Médico")
 
 
-class SecaoAdmin(Secao):
+class PerfilAdmin(Perfil):
     def descricao(self):
-        print("Seção ADMIN")
+        print("Perfil ADMIN")
 
 
 class CriadorPerfil(metaclass=ABCMeta):
     def __init__(self):
-        self.secoes = []
+        self.perfis = []
         self.criarPerfil()
 
     @abstractmethod
     def criarPerfil(self):
         pass
 
-    def getSecao(self):
-        return self.secoes
+    def getPerfil(self):
+        return self.perfis
 
-    def addSecao(self, secao):
-        self.secoes.append(secao)
+    def addPerfil(self, perfil):
+        self.perfis.append(perfil)
 
 
 class Exames(CriadorPerfil):
     def criarPerfil(self):
-        self.addSecao(SecaoMedico())
-        self.addSecao(SecaoAdmin())
+        self.addPerfil(PerfilMedico())
+        self.addPerfil(PerfilAdmin())
 
 
 class Resultados(CriadorPerfil):
     def criarPerfil(self):
-        self.addSecao(SecaoMedico())
-        self.addSecao(SecaoPaciente())
-        self.addSecao(SecaoAdmin())
+        self.addPerfil(PerfilMedico())
+        self.addPerfil(PerfilPaciente())
+        self.addPerfil(PerfilAdmin())
 
 
 class Marcacao(CriadorPerfil):
     def criarPerfil(self):
-        self.addSecao(SecaoMedico())
-        self.addSecao(SecaoPaciente())
-        self.addSecao(SecaoAdmin())
+        self.addPerfil(PerfilMedico())
+        self.addPerfil(PerfilPaciente())
+        self.addPerfil(PerfilAdmin())
 
 
 tipo_perfil = "Exames"
