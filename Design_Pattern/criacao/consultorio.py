@@ -1,3 +1,6 @@
+#Design Pattern: Factory Method
+
+
 # Importação de metaclasse para criação de classe abstrata
 from Design_Pattern.criacao.consulta import ConsultaCardiologia, ConsultaOrtopedia
 
