@@ -1,6 +1,8 @@
 # Design Pattern: Decorator
 
-from Design_Pattern.estrutura.impostos import ICMS, ICPP, IKCV, ISS
+# Teste da implementação
+
+from Design_Pattern.estrutura.Decorator.impostos import ICMS, ICPP, IKCV, ISS
 
 
 class CalculadorImpostos:
