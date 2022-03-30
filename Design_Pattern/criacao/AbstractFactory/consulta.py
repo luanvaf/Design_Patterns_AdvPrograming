@@ -1,11 +1,9 @@
 # Design Pattern: Abstract Factory
 
-# Importação de metaclasse para criação de classe abstrata
 from abc import ABCMeta, abstractmethod
 
 
-class MarcaConsulta(metaclass=ABCMeta):
-
+class ConsultorioFactory(metaclass=ABCMeta):
     @abstractmethod
     def marcarConsultaAdulto(self):
         pass
@@ -15,49 +13,63 @@ class MarcaConsulta(metaclass=ABCMeta):
         pass
 
 
-class ConsultaCardiologia(MarcaConsulta):
+class ConsultorioCardiologiaFactory(ConsultorioFactory):
     def marcarConsultaAdulto(self):
-        return ConsultaCardiologiaAdulto()
+        return ConsultaCardiologia()
 
     def marcarConsultaCrianca(self):
-        return ConsultaCardiologiaCrianca()
+        return ConsultaPediatria()
 
 
-class ConsultaOrtopedia(MarcaConsulta):
+class ConsultorioOrtopediaFactory(ConsultorioFactory):
     def marcarConsultaAdulto(self):
-        return ConsultaOrtopediaAdulto()
+        return ConsultaOrtopedia()
 
     def marcarConsultaCrianca(self):
-        return ConsultaOrtopediaCrianca()
+        return ConsultaPediatriaOrtopedica()
 
 
-class ConsAdulto(metaclass=ABCMeta):
+class ConsultaAdulto(metaclass=ABCMeta):
     @abstractmethod
-    def marcar(self, ConsAdulto):
+    def marcar(self, consulta):
         pass
 
 
-class ConsCrianca(metaclass=ABCMeta):
+class ConsultaCrianca(metaclass=ABCMeta):
     @abstractmethod
-    def atender(self, ConsCrianca):
+    def marcar(self, consulta):
         pass
 
 
-class ConsultaOrtopediaAdulto(ConsAdulto):
+class ConsultaCardiologia(ConsultaAdulto):
     def marcar(self):
-        print("Marcando", type(self).__name__)
+        print('Marcando', type(self).__name__)
 
 
-class ConsultaOrtopediaCrianca(ConsCrianca):
-    def atender(self, ConsAdulto):
-        print("Marcando", type(self).__name__, "Foi Marcacado", type(ConsAdulto).__name__)
-
-
-class ConsultaCardiologiaAdulto(ConsAdulto):
+class ConsultaPediatria(ConsultaCrianca):
     def marcar(self):
-        print("Marcando", type(self).__name__)
+        print('Marcando', type(self).__name__)
 
 
-class ConsultaCardiologiaCrianca(ConsCrianca):
-    def atender(self, ConsAdulto):
-        print("Marcando", type(self).__name__, "Foi Marcacado", type(ConsAdulto).__name__)
+class ConsultaOrtopedia(ConsultaAdulto):
+    def marcar(self):
+        print('Marcando', type(self).__name__)
+
+
+class ConsultaPediatriaOrtopedica(ConsultaCrianca):
+    def marcar(self):
+        print('Marcando', type(self).__name__)
+
+
+class Consultorio:
+    def consultorio(self):
+        for factory in [ConsultorioCardiologiaFactory(), ConsultorioOrtopediaFactory()]:
+            cons_crianca = factory.marcarConsultaCrianca()
+            cons_adulto = factory.marcarConsultaAdulto()
+            cons_adulto.marcar()
+            cons_crianca.marcar()
+
+
+if __name__ == '__main__':
+    consultorio = Consultorio()
+    consultorio.consultorio()

@@ -97,6 +97,7 @@ if __name__ == "__main__":
     print(eds)
     print(eds.__repr__())
     print(f'Preço do Exame de sangue: {eds.preco}')
+    print(f'Preço do Exame de Coração: {edc.preco}')
 
     #complex_exame = construct_exame(Complexexame)
     #print(f'Dados do exame complexo: {complex_exame}')

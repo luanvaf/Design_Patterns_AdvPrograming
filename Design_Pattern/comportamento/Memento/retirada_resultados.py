@@ -55,16 +55,13 @@ if __name__ == '__main__':
     historico = Historico()
 
     resultado = RetiradaResultados(data=date.today(), paciente='Joao da Silva Santos', tipo='AGUARDANDO RESULTADO')
-
     print(resultado.paciente)
     print(resultado.tipo)
-
 
     resultado.avanca()
 
     print(resultado.paciente)
     print(resultado.tipo)
-
     historico.adiciona_estado(resultado.salva_estado())
 
     resultado.avanca()

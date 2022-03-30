@@ -44,10 +44,10 @@ class Paciente(EstadoAtendimento):
 
 
 if __name__ == '__main__':
-    person = Paciente(EstadoAtendimentoNormal())
-    print("Atendimento Normal: " + person.em_atendimento())
-    print("Atendimento Normal: " + person.esperando_na_fila())
+    paciente = Paciente(EstadoAtendimentoNormal())
+    print("Atendimento Normal: " + paciente.em_atendimento())
+    print("Atendimento Normal: " + paciente.esperando_na_fila())
 
-    person.set_state(EstadoAtendimentoPreferencial())
-    print("Atendimento Preferencial: " + person.em_atendimento())
-    print("Atendimento Preferencial: " + person.esperando_na_fila())
+    paciente.set_state(EstadoAtendimentoPreferencial())
+    print("Atendimento Preferencial: " + paciente.em_atendimento())
+    print("Atendimento Preferencial: " + paciente.esperando_na_fila())
