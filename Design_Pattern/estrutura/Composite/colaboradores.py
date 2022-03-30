@@ -1,6 +1,5 @@
 # Design Pattern: Composite
 
-
 class Colaborador:
     def __init__(self, nome, salario):
         self.__nome = nome
@@ -12,26 +11,26 @@ class Colaborador:
 
 
 class Recepcionista(Colaborador):
-    def __init__(self, nome, salario, outro_parametro=None):
+    def __init__(self, nome, salario, setor=None):
         super(Recepcionista, self).__init__(nome, salario)
-        self.__outro_parametro = outro_parametro
+        self.__setor = setor
 
     @property
-    def outro_parametro(self):
-        return self.__outro_parametro
+    def setor(self):
+        return self.__setor
 
 
 class Medico(Colaborador):
-    def __init__(self, nome, salario, mais_um_parametro=None):
+    def __init__(self, nome, salario, especialidade=None):
         super(Medico, self).__init__(nome, salario)
-        self.__mais_um_parametro = mais_um_parametro
+        self.__especialidade = especialidade
 
     @property
-    def mais_um_parametro(self):
-        return self.__mais_um_parametro
+    def especialidade(self):
+        return self.__especialidade
 
 
-class Organizacao:
+class Clinica:
     def __init__(self):
         self.__colaboradores = list()
 
@@ -49,8 +48,8 @@ if __name__ == '__main__':
     joao = Recepcionista('Joao da Silva', 1800)
     carla = Medico('Carla Camila', 1900)
 
-    organizacao = Organizacao()
-    organizacao.add_colaborador(joao)
-    organizacao.add_colaborador(carla)
+    clinica = Clinica()
+    clinica.add_colaborador(joao)
+    clinica.add_colaborador(carla)
 
-    print(f'Total salários: {organizacao.total_salarios()}')
+    print(f'Total salários: {clinica.total_salarios()}')

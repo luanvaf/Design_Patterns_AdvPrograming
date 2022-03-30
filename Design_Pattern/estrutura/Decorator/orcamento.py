@@ -1,33 +1,49 @@
 # Design Pattern: Decorator
 
-class Orcamento:
-    def __init__(self):
-        self.__itens = list()
 
-    @property
-    def valor(self):
-        return sum([item.valor for item in self.__itens])
+class OrcamentoExame:
 
-    def obter_itens(self):
-        return tuple(self.__itens)
+    def __init__(self, orcamento):
+        self._orcamento = orcamento
 
-    @property
-    def total_itens(self):
-        return len(self.__itens)
-
-    def adiciona_item(self, item):
-        self.__itens.append(item)
+    def calcular(self):
+        return self._orcamento
 
 
-class Item:
-    def __init__(self, nome, valor):
-        self.__nome = nome
-        self.__valor = valor
+class Particular(OrcamentoExame):
 
-    @property
-    def valor(self):
-        return self.__valor
+    def __init__(self, valor):
+        self._valor = valor
 
-    @property
-    def nome(self):
-        return self.__nome
+    def calcular(self):
+        return self._valor.calcular() * 0.90
+
+
+class aVista(OrcamentoExame):
+
+    def __init__(self, valor):
+        self._valor = valor
+
+    def calcular(self):
+        return self._valor.calcular() * 0.90
+
+class Cartao(OrcamentoExame):
+
+    def __init__(self, valor):
+        self._valor = valor
+
+    def calcular(self):
+        return self._valor.calcular() * 1.10
+
+
+if __name__ == '__main__':
+
+    orcamento = OrcamentoExame(1000)
+    orcamento_particular = Particular(orcamento)
+    orcamento_particular_a_vista = Particular(aVista(orcamento))
+    orcamento_cartao = Cartao(orcamento)
+
+    print(f'O valor original é: {orcamento.calcular()}')
+    print(f'Desconto de 10% e o valor novo é: {orcamento_particular.calcular()}')
+    print(f'Desconto de 10% no valor particular: {orcamento_particular_a_vista.calcular()}')
+    print(f'O valor no cartão é: {orcamento_cartao.calcular()}')

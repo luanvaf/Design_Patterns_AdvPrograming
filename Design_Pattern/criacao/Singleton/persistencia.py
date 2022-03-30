@@ -1,20 +1,20 @@
 # classic implementation of Singleton Design pattern
 class Singleton:
-    __shared_instance = 'txtpath'
+    __shared_instance = 'databasePath'
 
     @staticmethod
     def getInstance():
 
-        """Static Access Method"""
-        if Singleton.__shared_instance == 'txtpath':
+        """Metodo de acesso stático"""
+        if Singleton.__shared_instance == 'databasePath':
             Singleton()
         return Singleton.__shared_instance
 
     def __init__(self):
 
         """virtual private constructor"""
-        if Singleton.__shared_instance != 'txtpath':
-            raise Exception("This class is a singleton class !")
+        if Singleton.__shared_instance != 'databasePath':
+            raise Exception("Essa é uma classe singleton !")
         else:
             Singleton.__shared_instance = self
 

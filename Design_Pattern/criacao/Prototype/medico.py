@@ -1,7 +1,5 @@
 # Design Pattern: Prototype
 
-# import the required modules
-
 from abc import ABCMeta, abstractmethod
 import copy
 
@@ -35,7 +33,7 @@ class Pediatra(Medico):
         self.especialidade = "Pediatra"
 
     def medico(self):
-        print("Inside Pediatra::medico() method")
+        print("Dentro do método de Pediatra::medico()")
 
 
 class Cardiologista(Medico):
@@ -44,12 +42,11 @@ class Cardiologista(Medico):
         self.especialidade = "Cardiologista"
 
     def medico(self):
-        print("Inside Cardiologista::medico() method")
+        print("Dentro do método de Cardiologista::medico()")
 
 
-# class - Courses At GeeksforGeeks Cache
 class Medicos_Cache:
-    # cache to store useful information
+
     cache = {}
 
     @staticmethod

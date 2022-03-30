@@ -14,8 +14,8 @@ class Consultorio:
             self.fabrica = fabrica
             self.marcarConsultaAdulto = self.fabrica.marcarConsultaAdulto()
             self.marcarConsultaCrianca = self.fabrica.marcarConsultaCrianca()
-            self.marcarConsultaAdulto.prepare()
-            self.marcarConsultaCrianca.serve(self.marcarConsultaAdulto)
+            self.marcarConsultaAdulto.marcar()
+            self.marcarConsultaCrianca.atender(self.marcarConsultaAdulto)
 
 
 consulta = Consultorio()

@@ -33,31 +33,31 @@ class ConsultaOrtopedia(MarcaConsulta):
 
 class ConsAdulto(metaclass=ABCMeta):
     @abstractmethod
-    def prepare(self, ConsAdulto):
+    def marcar(self, ConsAdulto):
         pass
 
 
 class ConsCrianca(metaclass=ABCMeta):
     @abstractmethod
-    def serve(self, ConsCrianca):
+    def atender(self, ConsCrianca):
         pass
 
 
 class ConsultaOrtopediaAdulto(ConsAdulto):
-    def prepare(self):
+    def marcar(self):
         print("Marcando", type(self).__name__)
 
 
 class ConsultaOrtopediaCrianca(ConsCrianca):
-    def serve(self, ConsAdulto):
+    def atender(self, ConsAdulto):
         print("Marcando", type(self).__name__, "Foi Marcacado", type(ConsAdulto).__name__)
 
 
 class ConsultaCardiologiaAdulto(ConsAdulto):
-    def prepare(self):
+    def marcar(self):
         print("Marcando", type(self).__name__)
 
 
 class ConsultaCardiologiaCrianca(ConsCrianca):
-    def serve(self, ConsAdulto):
+    def atender(self, ConsAdulto):
         print("Marcando", type(self).__name__, "Foi Marcacado", type(ConsAdulto).__name__)

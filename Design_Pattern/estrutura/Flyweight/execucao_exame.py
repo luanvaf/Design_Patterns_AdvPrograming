@@ -2,7 +2,7 @@
 
 class ExecucaoExames:
     def __init__(self, exame_type):
-        self.__tea_type = exame_type
+        self.__exame_type = exame_type
 
     @property
     def exame_type(self):

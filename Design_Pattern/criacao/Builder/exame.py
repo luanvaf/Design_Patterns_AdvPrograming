@@ -2,7 +2,7 @@
 
 # Adaptar código abaixo
 
-# Abstract course
+# Abstract Exame
 class Exame:
 
     def __init__(self):
@@ -21,7 +21,7 @@ class Exame:
 
 # concrete exames
 class EDS(Exame):
-    """Class for Exame de Sangue """
+    """Classe para Exame de Sangue """
 
     def Preco(self):
         self.preco = 8000
@@ -30,12 +30,12 @@ class EDS(Exame):
         self.vagas = 5
 
     def __str__(self):
-        return "EDS"
+        return "Exame de Sangue"
 
 
 # concrete exame
 class EDV(Exame):
-    """Class for Exame de Vista"""
+    """Class para Exame de Vista"""
 
     def Preco(self):
         self.preco = 10000
@@ -44,7 +44,7 @@ class EDV(Exame):
         self.vagas = 4
 
     def __str__(self):
-        return "EDV"
+        return "Exame de Vista"
 
 
 # concrete exame
@@ -58,17 +58,18 @@ class EDC(Exame):
         self.vagas = 7
 
     def __str__(self):
-        return "EDC"
+        return "Exame de Coração"
 
 
 # Complex Exame
+# Caso para quando é necessário criar o método builder a parte (apenas para estudo)
 class ComplexExame:
 
     def __repr__(self):
         return 'Preco : {0.preco} | vagas_disponiveis: {0.vagas}'.format(self)
 
 
-# Complex course
+# Complex Exame
 class Complexexame(ComplexExame):
 
     def Preco(self):
@@ -84,14 +85,18 @@ def construct_exame(cls):
     exame.Preco()
     exame.vagas_disponiveis()
 
-    return exame  # return the exame object
+    return exame  # retorna o obj exame
 
 
 # main method
 if __name__ == "__main__":
-    eds = EDS()  # object for EDS Exame
-    edv = EDV()  # object for EDV Exame
-    edc = EDC()  # object for EDC Exame
+    eds = EDS()  # objeto para EDS Exame
+    edv = EDV()  # objeto para EDV Exame
+    edc = EDC()  # objeto para EDC Exame
 
-    complex_exame = construct_exame(Complexexame)
-    print(complex_exame)
+    print(eds)
+    print(eds.__repr__())
+    print(f'Preço do Exame de sangue: {eds.preco}')
+
+    #complex_exame = construct_exame(Complexexame)
+    #print(f'Dados do exame complexo: {complex_exame}')
